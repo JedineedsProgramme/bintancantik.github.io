@@ -1,149 +1,148 @@
-body {
+/* ==========================================================================
+   1. GLOBAL RESET & BASE
+   ========================================================================== */
+* {
+    box-sizing: border-box;
     margin: 0;
-    font-family: Arial, sans-serif;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
     transition: 0.3s;
 }
 
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ==========================================================================
+   2. HEADER & NAVIGATION
+   ========================================================================== */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
     background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* left side (logo + contact) */
 .left-header {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 25px;
 }
 
 .logo img {
     height: 60px;
 }
 
-/* contact text */
 .contact-info {
     display: flex;
     gap: 15px;
     font-size: 14px;
-}
-
-.contact-info p {
     font-weight: bold;
 }
 
+/* Hamburger Button (Hidden on Desktop) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    width: 25px;
+    height: 3px;
+    background: #333;
+    transition: 0.3s;
+    border-radius: 2px;
+}
+
+/* Nav Menu */
+nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+nav a:hover, nav a:visited:hover {
+    color: #0088cc;
+}
+
+nav a:visited {
+    color: #333;
+}
+
+/* Dropdown Menu */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    min-width: 160px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    display: none;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.dropdown-menu a {
+    padding: 10px 20px;
+    font-weight: 500;
+}
+
+.dropdown-menu.show {
+    display: flex;
+}
+
+/* ==========================================================================
+   3. HERO & SECTIONS
+   ========================================================================== */
 .hero {
     height: 60vh;
-    background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover;
+    background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
+                url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
-    font-size: 30px;
-}
-
-.locations {
-    padding: 50px;
     text-align: center;
 }
 
-/* Buttons */
-.tab-buttons {
-    margin-bottom: 30px;
-}
-
-.tab-btn {
-    padding: 12px 25px;
-    border: none;
-    background: #ddd;
-    cursor: pointer;
-    margin: 5px;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.tab-btn:hover {
-    background: #0088cc;
-    color: white;
-}
-
-.tab-btn.active {
-    background: #0088cc;
-    color: white;
-}
-
-/* Content */
-.tab-content {
-    display: none;
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-}
-
-.tab-content.active {
-    display: block;
-}
-
-/* Fade-in base state */
-.contact {
-    background: #0088cc;
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 1s ease, transform 1s ease;
-}
-
-/* When visible */
-.contact.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.contact h2 {
-    margin-bottom: 30px;
-}
-
-.contact-container {
-    display: flex;
-    justify-content: center;
-    gap: 60px;
-    flex-wrap: wrap;
-}
-
-.contact-item h4 {
-    margin-bottom: 10px;
-}
-
-.contact-item a {
-    color: white;
-    text-decoration: none;
-}
-
-.contact-item a:hover {
-    text-decoration: underline;
-}
-
-header {
-    background: white;
-    color: black;
-}
-
-.city-image {
-    width: 100%;
-    max-width: 600px;
-    margin-top: 20px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+.hero h2 {
+    font-size: 36px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
 }
 
 .destination-section {
-    text-align: center;
     padding: 60px 20px;
+    text-align: center;
 }
 
 .section-title {
@@ -152,58 +151,53 @@ header {
     font-weight: 600;
 }
 
-/* Button container */
+/* ==========================================================================
+   4. TABS & SLIDERS
+   ========================================================================== */
 .tab-buttons {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 15px;
+    margin-bottom: 40px;
 }
 
-/* Base button */
 .tab-btn {
     padding: 12px 30px;
-    border-radius: 12px;
+    border-radius: 50px;
     border: none;
     background: #e5e5e5;
     cursor: pointer;
     font-size: 16px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    font-weight: 600;
+    transition: 0.3s;
 }
 
-/* Hover effect */
 .tab-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transform: translateY(-2px);
+    background: #d0d0d0;
 }
 
-/* Active button */
 .tab-btn.active {
     background: #0088cc;
     color: white;
-    box-shadow: 0 8px 20px rgba(0,136,204,0.4);
+    box-shadow: 0 5px 15px rgba(0, 136, 204, 0.3);
 }
 
-.batam-slider {
-    position: relative;
-    overflow: hidden;
-    max-width: 1000px;
-    margin: 40px auto;
+.tab-content {
+    display: none;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
-.bintan-slider {
-    position: relative;
-    overflow: hidden;
-    max-width: 1000px;
-    margin: 40px auto;
+.tab-content.active {
+    display: block;
 }
 
-.pinang-slider {
+/* Slider Component */
+.batam-slider, .bintan-slider, .pinang-slider {
     position: relative;
     overflow: hidden;
-    max-width: 1000px;
-    margin: 40px auto;
+    padding: 20px;
 }
 
 .slider-wrapper {
@@ -221,119 +215,70 @@ header {
 .slide img {
     width: 50%;
     border-radius: 20px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
 .slide-content {
     width: 50%;
+    text-align: left;
 }
 
-.slide-content h3 {
-    font-size: 26px;
-    margin-bottom: 15px;
-}
-
-.slide-content p {
-    margin-bottom: 15px;
-}
+.slide-content h3 { font-size: 26px; margin-bottom: 15px; }
+.price { font-size: 18px; margin-bottom: 15px; color: #0088cc; }
 
 .detail-btn {
-    padding: 10px 25px;
+    padding: 12px 30px;
     background: #004d40;
     color: white;
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    font-weight: bold;
     transition: 0.3s;
 }
 
-.detail-btn:hover {
-    background: #00695c;
-}
+.detail-btn:hover { background: #00695c; }
 
+/* Slider Navigation Buttons */
 .slide-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
     color: white;
     border: none;
-    font-size: 22px;
-    padding: 10px 15px;
+    width: 45px;
+    height: 45px;
     cursor: pointer;
     border-radius: 50%;
-    z-index: 10; /* 🔥 THIS FIXES IT */
+    z-index: 10;
 }
 
 .prev { left: 10px; }
 .next { right: 10px; }
 
-/* Header layout */
-header {
+/* ==========================================================================
+   5. CONTACT & FOOTER
+   ========================================================================== */
+.contact {
+    background: #0088cc;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.contact-container {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 40px;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    margin-top: 30px;
 }
 
-/* Navigation */
-.main-nav {
-    margin-left: auto;
-}
+.contact-item a { color: white; text-decoration: none; }
+.contact-item a:hover { text-decoration: underline; }
 
-.main-nav > ul {
-    list-style: none;
-    display: flex;
-    gap: 40px;
-    align-items: center;
-    margin: 0;
-}
-
-.main-nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-.main-nav a:hover {
-    color: #0088cc;
-}
-
-/* Dropdown */
-.dropdown {
-    position: relative;
-}
-
-.dropdown-menu {
-    position: absolute;
-    top: 35px;
-    left: 0;
-    background: white;
-    padding: 10px 0;
-    display: none;
-    min-width: 160px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    flex-direction: column;
-}
-
-.dropdown-menu a {
-    display: block;
-    padding: 10px 20px;
-    color: #333;
-    text-decoration: none;
-}
-
-.dropdown-menu a:hover {
-    background: #f5f5f5;
-}
-
-.dropdown-menu.show {
-    display: block;
-}
-
-/* Floating WhatsApp Button */
+/* Floating WhatsApp */
 .whatsapp-float {
     position: fixed;
     bottom: 25px;
@@ -342,48 +287,138 @@ header {
     height: 60px;
     background: #25D366;
     color: white;
-    font-size: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    text-decoration: none;
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
+    transition: 0.3s;
     z-index: 999;
 }
 
-.whatsapp-float.show {
-    opacity: 1;
-    transform: translateY(0);
+.whatsapp-float:hover { transform: scale(1.1); background: #1ebe5d; }
+
+/* ==========================================================================
+   6. MOBILE RESPONSIVE (MAX-WIDTH: 768px)
+   ========================================================================== */
+@media (max-width: 768px) {
+    /* Header & Mobile Menu */
+    header {
+        display: flex;
+        flex-direction: row; /* Keep horizontal layout */
+        justify-content: space-between;
+        padding: 10px 15px;
+        height: 70px;
+    }
+    
+    .menu-toggle { display: flex; }
+    
+    nav {
+        display: none; /* Controlled by JS .show class */
+        position: absolute;
+        top: 60%;
+        left: 0;
+        width: 100%;
+        background: white;
+        flex-direction: column;
+        padding: 20px 0;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        gap: 0;
+        z-index: 1000;
+    }
+
+    nav.show {
+        display: flex;
+        flex-direction: column;
+        background: #ffffff;
+        width: 100%;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        padding: 0;
+        border-top: 1px solid #eee;
+        height: calc(100vh - 70px);
+    }
+
+    nav a {
+        padding: 15px 20px;
+        width: 100%;
+        border-bottom: 1px solid #eee;
+        text-align: left;
+    }
+
+    .dropdown {
+        width: 100%;
+    }
+
+    .dropdown-menu {
+        position: static;
+        width: 100%;
+        box-shadow: none;
+        background: #fffff;
+        padding: 0;
+    }
+
+    .dropdown-menu.show {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left-header {
+        display: flex;
+        flex-direction: row; /* Force horizontal alignment */
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logo img {
+        height: 40px; /* Scale down logo slightly for space */
+        width: auto;
+    }
+
+    .contact-info {
+        display: flex; /* Ensure it stays visible */
+        flex-direction: row; /* Stack the phone and email vertically to save width */
+        gap: 8px;
+        font-size: 10px; /* Smaller font to fit the screen */
+        align-items: center;
+    }
+    
+    .contact-info p {
+        margin: 0;
+        font-weight:bold;
+        white-space: nowrap; /* Prevent text from wrapping to a new line */
+    }/* Hide text contact in mobile header for space */
+
+    /* Hero & Titles */
+    .hero { height: 40vh; }
+    .hero h2 { font-size: 24px; padding: 0 20px; }
+
+    /* Tabs & Content */
+    .tab-buttons { flex-wrap: wrap; }
+    .tab-btn { width: 45%; font-size: 14px; padding: 10px; }
+
+    .slide {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .slide img, .slide-content {
+        width: 100%;
+    }
+
+    .slide-content { padding: 0 10px; }
+    .slide-content h3 { font-size: 20px; }
+
+    /* Contact */
+    .contact-container { flex-direction: column; gap: 30px; }
+
+    /* Hamburger Animation to 'X' */
+    .menu-toggle.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2) { opacity: 0; }
+    .menu-toggle.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
 
-.whatsapp-float:hover {
-    background: #1ebe5d;
-    transform: scale(1.1);
-}
-
-/* Navigation styling */
-nav {
-    display: flex;
-    gap: 40px;
-    align-items: center;
-}
-
-nav a {
-    text-decoration: none;
-    color: #333;
-    font-weight: 600;
-    transition: 0.3s ease;
-}
-
-nav a:hover {
-    color: #0088cc;
-}
-
-/* Remove purple visited color */
-nav a:visited {
-    color: #333;
+.slider-wrapper {
+    touch-action: pan-y;
 }
