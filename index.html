@@ -1,0 +1,222 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Batam</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="left-header">
+        <div class="logo">
+            <img src="assets/bintan cantik.jpg" alt="Bintan Cantik Logo">
+        </div>
+
+        <div class="contact-info">
+            <p>+62 812 3456 789</p>
+            <p>info@bintancantik.com</p>
+        </div>
+    </div>
+
+    <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="portfolio.html">Portfolio</a>
+
+    <div class="dropdown">
+        <a href="#" id="othersToggle">
+            Others <span id="dropdownArrow">▶</span>
+        </a>
+        <div class="dropdown-menu" id="dropdownMenu">
+            <a href="gallery.html">Gallery</a>
+            <a href="qna.html">Q&A</a>
+        </div>
+    </div>
+</nav>
+</header>
+
+<section class="hero">
+    <h2>Your Reliable Tour Travel Partner</h2>
+</section>
+
+<section class="locations">
+
+    <div class="destination-section">
+        <h2 class="section-title">Choose Your Destination</h2>
+
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="showTab('batam', this)">Batam</button>
+            <button class="tab-btn" onclick="showTab('bintan', this)">Bintan</button>
+            <button class="tab-btn" onclick="showTab('pinang', this)">Tanjung Pinang</button>
+        </div>
+    </div>
+
+    <!-- BATAM SLIDER SECTION -->
+    <div class="tab-content active" id="batam">
+
+        <div class="batam-slider">
+
+            <button class="slide-btn prev" onclick="slideBatam(-1)">❮</button>
+
+            <div class="slider-wrapper">
+
+                <!-- Slide 1 -->
+                <div class="slide">
+                    <img src="assets/batam.png" alt="Nongsa Beach">
+                    <div class="slide-content">
+                        <h3>Nongsa Beaches & Resorts</h3>
+                        <p>Relaxing seaside resorts with crystal clear water.</p>
+                        <p class="price">Start from <strong>IDR 750.000</strong></p>
+                        <button class="detail-btn">Detail →</button>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <img src="assets/bengkong.jpg" alt="Bengkong Street Food">
+                    <div class="slide-content">
+                        <h3>Bengkong Street Food Centre</h3>
+                        <p>Enjoy Batam's best seafood & local cuisine.</p>
+                        <p class="price">Start from <strong>IDR 250.000</strong></p>
+                        <button class="detail-btn">Detail →</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="slide-btn next" onclick="slideBatam(1)">❯</button>
+
+        </div>
+
+    </div>
+
+    <!-- BINTAN -->
+    <div class="tab-content" id="bintan">
+
+        <div class="bintan-slider">
+
+            <button class="slide-btn prev" onclick="slideBintan(-1)">❮</button>
+
+            <div class="slider-wrapper">
+
+                <!-- Slide 1 -->
+                <div class="slide">
+                    <img src="assets/lagoi.jpg" alt="Lagoi Beaches and Resorts">
+                    <div class="slide-content">
+                        <h3>Lagoi Beaches and Resorts</h3>
+                        <p>Relaxing seaside resorts with crystal clear water.</p>
+                        <p class="price">Start from <strong>IDR 750.000</strong></p>
+                        <button class="detail-btn">Detail →</button>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <img src="assets/penaga.jpg" alt="Penaga Gem">
+                    <div class="slide-content">
+                        <h3>Penaga Village and Seaside</h3>
+                        <p>Enjoy Penaga's best seafood & local cuisine.</p>
+                        <p class="price">Start from <strong>IDR 250.000</strong></p>
+                        <button class="detail-btn">Detail →</button>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="slide">
+                    <img src="assets/gurun bintan.jpg" alt="Blue Lake & Sand Dune">
+                    <div class="slide-content">
+                        <h3>Blue Lake & Sand Dune</h3>
+                        <p>Enjoy Penaga's best seafood & local cuisine.</p>
+                        <p class="price">Start from <strong>IDR 250.000</strong></p>
+                        <button class="detail-btn">Detail →</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <button class="slide-btn next" onclick="slideBintan(1)">❯</button>
+
+        </div>
+
+    </div>
+
+    <!-- TANJUNG PINANG -->
+    <div class="tab-content" id="pinang">
+
+        <div class="pinang-slider">
+
+            <button class="slide-btn prev" onclick="slidePinang(-1)">❮</button>
+
+            <div class="slider-wrapper">
+
+                <!-- Slide 1 -->
+                <div class="slide">
+                    <img src="assets/viharapinang.jpg" alt="Pinang Vintage">
+                    <div class="slide-content">
+                        <h3>Avalokitesvara Vihara</h3>
+                        <p>Relaxing seaside resorts with crystal clear water.</p>
+                        <p class="price">Start from <strong>IDR 750.000</strong></p>
+                        <button class="detail-btn">Detail →</button>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="slide">
+                    <img src="assets/penaga.jpg" alt="Penaga Gem">
+                    <div class="slide-content">
+                        <h3>Penaga Village and Seaside</h3>
+                        <p>Enjoy Penaga's best seafood & local cuisine.</p>
+                        <p class="price">Start from <strong>IDR 250.000</strong></p>
+                        <button class="detail-btn">Detail →</button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="slide-btn next" onclick="slidePinang(1)">❯</button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="contact">
+    <h2>Contact Us</h2>
+
+    <div class="contact-container">
+        <div class="contact-item">
+            <h4>📞 Phone</h4>
+            <p><a href="tel:+6281234567890">+62 812 3456 7890</a></p>
+        </div>
+
+        <div class="contact-item">
+            <h4>📧 Email</h4>
+            <p><a href="mailto:info@bintancantik.com">info@bintancantik.com</a></p>
+        </div>
+
+        <div class="contact-item">
+            <h4>📍 Address</h4>
+            <p>Batam, Kepulauan Riau, Indonesia</p>
+        </div>
+    </div>
+</section>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/6281234567890" 
+   class="whatsapp-float" 
+   target="_blank"
+   aria-label="Chat on WhatsApp">
+
+   <svg viewBox="0 0 32 32" width="28" height="28" fill="white">
+      <path d="M16.003 2.003c-7.732 0-14 6.268-14 14 0 2.47.64 4.885 1.86 7.01L2 30l7.16-1.83A13.93 13.93 0 0016 30c7.732 0 14-6.268 14-14s-6.268-14-13.997-14zm0 25.5c-2.14 0-4.23-.56-6.07-1.63l-.43-.25-4.25 1.08 1.13-4.14-.28-.44a11.46 11.46 0 01-1.78-6.17c0-6.34 5.16-11.5 11.5-11.5s11.5 5.16 11.5 11.5-5.16 11.5-11.5 11.5zm6.33-8.61c-.35-.18-2.08-1.02-2.4-1.14-.32-.12-.55-.18-.78.18s-.9 1.14-1.1 1.38c-.2.24-.4.27-.75.09-.35-.18-1.47-.54-2.8-1.72-1.03-.92-1.72-2.06-1.92-2.4-.2-.35-.02-.54.15-.72.16-.16.35-.4.52-.6.18-.2.24-.35.35-.58.12-.24.06-.45-.03-.63-.09-.18-.78-1.88-1.07-2.58-.28-.67-.57-.58-.78-.59h-.67c-.23 0-.6.09-.92.45-.32.35-1.2 1.17-1.2 2.85s1.23 3.31 1.4 3.54c.18.24 2.42 3.69 5.87 5.17.82.35 1.47.56 1.97.72.83.26 1.59.22 2.19.13.67-.1 2.08-.85 2.37-1.68.3-.83.3-1.54.21-1.68-.09-.15-.32-.24-.67-.41z"/>
+   </svg>
+
+</a>
+
+<script src="script.js"></script>
+
+</body>
+</html>

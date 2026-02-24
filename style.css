@@ -1,0 +1,389 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    transition: 0.3s;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: white;
+}
+
+/* left side (logo + contact) */
+.left-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo img {
+    height: 60px;
+}
+
+/* contact text */
+.contact-info {
+    display: flex;
+    gap: 15px;
+    font-size: 14px;
+}
+
+.contact-info p {
+    font-weight: bold;
+}
+
+.hero {
+    height: 60vh;
+    background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 30px;
+}
+
+.locations {
+    padding: 50px;
+    text-align: center;
+}
+
+/* Buttons */
+.tab-buttons {
+    margin-bottom: 30px;
+}
+
+.tab-btn {
+    padding: 12px 25px;
+    border: none;
+    background: #ddd;
+    cursor: pointer;
+    margin: 5px;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.tab-btn:hover {
+    background: #0088cc;
+    color: white;
+}
+
+.tab-btn.active {
+    background: #0088cc;
+    color: white;
+}
+
+/* Content */
+.tab-content {
+    display: none;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Fade-in base state */
+.contact {
+    background: #0088cc;
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+/* When visible */
+.contact.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contact h2 {
+    margin-bottom: 30px;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.contact-item h4 {
+    margin-bottom: 10px;
+}
+
+.contact-item a {
+    color: white;
+    text-decoration: none;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+header {
+    background: white;
+    color: black;
+}
+
+.city-image {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.destination-section {
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.section-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: 600;
+}
+
+/* Button container */
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Base button */
+.tab-btn {
+    padding: 12px 30px;
+    border-radius: 12px;
+    border: none;
+    background: #e5e5e5;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* Hover effect */
+.tab-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Active button */
+.tab-btn.active {
+    background: #0088cc;
+    color: white;
+    box-shadow: 0 8px 20px rgba(0,136,204,0.4);
+}
+
+.batam-slider {
+    position: relative;
+    overflow: hidden;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.bintan-slider {
+    position: relative;
+    overflow: hidden;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.pinang-slider {
+    position: relative;
+    overflow: hidden;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.slider-wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+}
+
+.slide img {
+    width: 50%;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+
+.slide-content {
+    width: 50%;
+}
+
+.slide-content h3 {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.slide-content p {
+    margin-bottom: 15px;
+}
+
+.detail-btn {
+    padding: 10px 25px;
+    background: #004d40;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.detail-btn:hover {
+    background: #00695c;
+}
+
+.slide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    font-size: 22px;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10; /* 🔥 THIS FIXES IT */
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+/* Header layout */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+}
+
+/* Navigation */
+.main-nav {
+    margin-left: auto;
+}
+
+.main-nav > ul {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    margin: 0;
+}
+
+.main-nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.main-nav a:hover {
+    color: #0088cc;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    background: white;
+    padding: 10px 0;
+    display: none;
+    min-width: 160px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    flex-direction: column;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 10px 20px;
+    color: #333;
+    text-decoration: none;
+}
+
+.dropdown-menu a:hover {
+    background: #f5f5f5;
+}
+
+.dropdown-menu.show {
+    display: block;
+}
+
+/* Floating WhatsApp Button */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    color: white;
+    font-size: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    z-index: 999;
+}
+
+.whatsapp-float.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.whatsapp-float:hover {
+    background: #1ebe5d;
+    transform: scale(1.1);
+}
+
+/* Navigation styling */
+nav {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: 0.3s ease;
+}
+
+nav a:hover {
+    color: #0088cc;
+}
+
+/* Remove purple visited color */
+nav a:visited {
+    color: #333;
+}
