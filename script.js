@@ -79,13 +79,20 @@ const othersToggle = document.getElementById("othersToggle");
 const dropdownMenu = document.getElementById("dropdownMenu");
 const dropdownArrow = document.getElementById("dropdownArrow");
 
-if (othersToggle) {
+if (othersToggle && dropdownMenu && dropdownArrow) {
     othersToggle.addEventListener("click", function (e) {
-        e.preventDefault(); 
-        e.stopPropagation(); // 🔥 STOP the click from closing the main mobile menu
-        
+        e.preventDefault();
+        e.stopPropagation();
         dropdownMenu.classList.toggle("show");
-        dropdownArrow.innerHTML = dropdownMenu.classList.contains("show") ? "▼" : "▶";
+        dropdownArrow.textContent = dropdownMenu.classList.contains("show") ? "▼" : "▶";
+    });
+
+    // Close dropdown if clicking outside
+    document.addEventListener("click", function (e) {
+        if (!e.target.closest(".dropdown")) {
+            dropdownMenu.classList.remove("show");
+            dropdownArrow.textContent = "▶";
+        }
     });
 }
 
@@ -116,53 +123,102 @@ window.addEventListener("load", () => {
 });
 
 // ==========================================
-// 6. TOUCH SWIPE SUPPORT (Mobile Slider)
-// ==========================================
-
-// ==========================================
-// 6. TOUCH SWIPE SUPPORT (Improved Version)
-// ==========================================
-
-// ==========================================
-// 6. TOUCH SWIPE SUPPORT (Robust Version)
+// 6. TOUCH SWIPE SUPPORT (Final Fixed Version)
 // ==========================================
 
 function addSwipeSupport(sliderId, slideFunction) {
-    const slider = document.querySelector(`#${sliderId} .slider-wrapper`);
+    const slider = document.querySelector(`#${sliderId} .${sliderId}-slider`);
     if (!slider) return;
 
     let startX = 0;
-    let startTime = 0;
-    const distanceThreshold = 40;   // minimum px distance
-    const timeThreshold = 500;      // max swipe duration (ms)
+    let startY = 0;
+    let isDragging = false;
 
-    slider.addEventListener("touchstart", (e) => {
-        startX = e.touches[0].clientX;
-        startTime = new Date().getTime();
+    slider.addEventListener('touchstart', (e) => {
+        startX = e.changedTouches[0].clientX;
+        startY = e.changedTouches[0].clientY;
+    }, { passive: true });
+
+    slider.addEventListener('touchend', (e) => {
+        const endX = e.changedTouches[0].clientX;
+        const endY = e.changedTouches[0].clientY;
+
+        const diffX = endX - startX;
+        const diffY = endY - startY;
+
+        const threshold = slider.offsetWidth * 0.18;
+
+        // 🔒 Axis lock: only react if horizontal is stronger than vertical
+        if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > threshold) {
+            slideFunction(diffX < 0 ? 1 : -1);
+        }
+    }, { passive: true });
+
+    // Desktop drag
+    slider.addEventListener('mousedown', (e) => {
+        isDragging = true;
+        startX = e.clientX;
     });
 
-    slider.addEventListener("touchend", (e) => {
-        const endX = e.changedTouches[0].clientX;
-        const endTime = new Date().getTime();
+    window.addEventListener('mouseup', (e) => {
+        if (!isDragging) return;
+        isDragging = false;
 
-        const distance = endX - startX;
-        const timeTaken = endTime - startTime;
+        const diffX = e.clientX - startX;
+        const threshold = slider.offsetWidth * 0.18;
 
-        // Check horizontal swipe
-        if (Math.abs(distance) > distanceThreshold && timeTaken < timeThreshold) {
-
-            if (distance < 0) {
-                // Swipe LEFT → Next slide
-                slideFunction(1);
-            } else {
-                // Swipe RIGHT → Previous slide
-                slideFunction(-1);
-            }
+        if (Math.abs(diffX) > threshold) {
+            slideFunction(diffX < 0 ? 1 : -1);
         }
     });
 }
 
-// Activate swipe
-addSwipeSupport("batam", slideBatam);
-addSwipeSupport("bintan", slideBintan);
-addSwipeSupport("pinang", slidePinang);
+document.addEventListener("DOMContentLoaded", () => {
+    addSwipeSupport("batam", slideBatam);
+    addSwipeSupport("bintan", slideBintan);
+    addSwipeSupport("pinang", slidePinang);
+});
+
+// ==========================================
+// 7. PAGE EXIT FADE (Only When Leaving Page)
+// ==========================================
+document.addEventListener("DOMContentLoaded", () => {
+
+    const links = document.querySelectorAll("a");
+
+    links.forEach(link => {
+
+        if (link.hostname === window.location.hostname) {
+
+            link.addEventListener("click", function (e) {
+
+                const href = link.getAttribute("href");
+
+                // Ignore anchors, empty links, dropdown toggles
+                if (!href || href.startsWith("#") || href.startsWith("javascript")) {
+                    return;
+                }
+
+                e.preventDefault(); // stop instant jump
+
+                document.body.classList.add("fade-out");
+
+                setTimeout(() => {
+                    window.location.href = href;
+                }, 1000); // 1 second fade
+            });
+
+        }
+
+    });
+
+});
+
+// FAQ Toggle
+document.querySelectorAll(".faq-question").forEach(button => {
+    button.addEventListener("click", () => {
+        const faqItem = button.parentElement;
+        faqItem.classList.toggle("active");
+    });
+});
+
