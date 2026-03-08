@@ -347,7 +347,7 @@ nav a:visited {
     nav {
         display: none; /* Controlled by JS .show class */
         position: absolute;
-        top: 60%;
+        top: 70%;
         left: 0;
         width: 100%;
         background: white;
@@ -378,6 +378,12 @@ nav a:visited {
         text-align: left;
     }
 
+    .dropdown > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    }
+
     .dropdown {
         width: 100%;
     }
@@ -386,8 +392,14 @@ nav a:visited {
         position: static;
         width: 100%;
         box-shadow: none;
-        background: #fffff;
+        background: #ffffff;
         padding: 0;
+        transition: all 0.3s ease;
+    }
+
+    .dropdown-menu a {
+    padding-left: 35px;
+    font-size: 15px;
     }
 
     .dropdown-menu.show {
@@ -744,4 +756,9 @@ nav a:visited {
 
 .faq-item.active .faq-question span {
     transform: rotate(45deg);
+}
+
+a[href^="tel"] {
+    color: inherit;
+    text-decoration: none;
 }
