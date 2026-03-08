@@ -24,15 +24,29 @@ img {
    2. HEADER & NAVIGATION
    ========================================================================== */
 header {
+    background-image: url("bintan/istockphoto-969085876-612x612.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 40px;
-    background: white;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+
+    position: relative;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(255,255,255,0.7); /* 0.7 = 70% transparency */
+}
+
+header * {
+    position: relative;
+    z-index: 2;
 }
 
 .left-header {
@@ -758,6 +772,23 @@ nav a:visited {
 
 .faq-item.active .faq-question span {
     transform: rotate(45deg);
+}
+
+.portfolio-points {
+    margin: 25px auto;
+    max-width: 800px;
+    text-align: left;        /* important */
+    padding-left: 25px;
+}
+
+.portfolio-points li {
+    margin-bottom: 14px;
+    line-height: 1.7;
+}
+
+.about-content p {
+    max-width: 800px;
+    margin: 15px auto;
 }
 
 a[href^="tel"] {
