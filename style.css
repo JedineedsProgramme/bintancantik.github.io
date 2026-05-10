@@ -1064,3 +1064,20 @@ body.fade-out {
     }
 
 }
+
+@media (max-width: 768px) {
+
+    .section-title {
+        font-size: 28px;   /* already there in your code */
+        line-height: 1.2;
+    }
+
+    /* 👇 ADD THIS PART */
+    .destination-calculator .section-title {
+        font-size: 24px;   /* Estimate Your Trip */
+    }
+
+    .destination-section .section-title {
+        font-size: 26px;   /* What to See? */
+    }
+}
