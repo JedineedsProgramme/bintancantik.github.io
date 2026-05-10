@@ -54,7 +54,7 @@
 <section class="locations">
 
     <div class="destination-section">
-        <h2 class="section-title">Choose Your Destination</h2>
+        <h2 class="section-title">What to See?</h2>
 
         <div class="tab-buttons">
             <button class="tab-btn active" onclick="showTab('batam', this)">Batam</button>
@@ -78,7 +78,6 @@
                     <div class="slide-content">
                         <h3>Nongsa Beaches & Resorts</h3>
                         <p>Relaxing seaside resorts with crystal clear water.</p>
-                        <p class="price">Start from <strong>IDR 750.000</strong></p>
                         <a href="batam/nongsa.html" class="detail-btn">Detail</a>
                     </div>
                 </div>
@@ -89,7 +88,6 @@
                     <div class="slide-content">
                         <h3>Bengkong Street Food Centre</h3>
                         <p>Enjoy Batam's best seafood & local cuisine.</p>
-                        <p class="price">Start from <strong>IDR 250.000</strong></p>
                         <a href="batam/bengkong.html" class="detail-btn">Detail</a>
                     </div>
                 </div>
@@ -117,7 +115,6 @@
                     <div class="slide-content">
                         <h3>Lagoi Beaches and Resorts</h3>
                         <p>Relaxing seaside resorts with crystal clear water.</p>
-                        <p class="price">Start from <strong>IDR 750.000</strong></p>
                         <a href="bintan/lagoi.html" class="detail-btn">Detail</a>
                     </div>
                 </div>
@@ -128,7 +125,6 @@
                     <div class="slide-content">
                         <h3>Gunung Bintan</h3>
                         <p>Enjoy Gunung Bintan amusing view.</p>
-                        <p class="price">Start from <strong>IDR 250.000</strong></p>
                         <a href="bintan/gunungbintan.html" class="detail-btn">Detail</a>
                     </div>
                 </div>
@@ -139,7 +135,6 @@
                     <div class="slide-content">
                         <h3>Blue Lake & Sand Dune</h3>
                         <p>Enjoy Penaga's best seafood & local cuisine.</p>
-                        <p class="price">Start from <strong>IDR 250.000</strong></p>
                         <a href="bintan/gurunbintan.html" class="detail-btn">Detail</a>
                     </div>
                 </div>
@@ -167,7 +162,6 @@
                     <div class="slide-content">
                         <h3>Avalokitesvara Vihara</h3>
                         <p>Relaxing seaside resorts with crystal clear water.</p>
-                        <p class="price">Start from <strong>IDR 750.000</strong></p>
                         <a href="pinang/vihara.html" class="detail-btn">Detail</a>
                     </div>
                 </div>
@@ -178,7 +172,6 @@
                     <div class="slide-content">
                         <h3>Gunung Bintan</h3>
                         <p>Enjoy Penaga's best seafood & local cuisine.</p>
-                        <p class="price">Start from <strong>IDR 250.000</strong></p>
                         <a href="pinang/tepilaut.html" class="detail-btn">Detail</a>
                     </div>
                 </div>
@@ -187,6 +180,102 @@
             <button class="slide-btn next" onclick="slidePinang(1)">❯</button>
 
         </div>
+
+    </div>
+
+</section>
+
+<!-- DESTINATION PRICE CALCULATOR -->
+<section class="destination-calculator">
+
+    <div class="calculator-header">
+        <h2 class="section-title">Estimate Your Trip</h2>
+        <p>
+            Choose up to 3 destinations and instantly see your estimated travel price.
+        </p>
+    </div>
+
+    <div class="calculator-box">
+
+        <div class="destination-grid">
+
+    <!-- PLACE -->
+    <div class="dropdown-group">
+
+        <label for="placeSelect">
+            <span class="step-circle">1</span>
+            Place
+        </label>
+
+        <select id="placeSelect">
+            <option value="">-- Select Place --</option>
+            <option value="bintan">Bintan & Tanjung Pinang</option>
+            <option value="batam">Batam</option>
+        </select>
+
+    </div>
+
+    <!-- DESTINATION 1 -->
+    <div class="dropdown-group">
+
+        <label for="destination1">
+            <span class="step-circle">2</span>
+            Destination 1
+        </label>
+
+        <select id="destination1">
+            <option value="">-- Select Destination --</option>
+        </select>
+
+    </div>
+
+    <!-- DESTINATION 2 -->
+    <div class="dropdown-group">
+
+        <label for="destination2">
+            <span class="step-circle">3</span>
+            Destination 2
+        </label>
+
+        <select id="destination2">
+            <option value="">-- Select Destination --</option>
+        </select>
+
+    </div>
+
+    <!-- DESTINATION 3 -->
+    <div class="dropdown-group">
+
+        <label for="destination3">
+            <span class="step-circle">4</span>
+            Destination 3
+        </label>
+
+        <select id="destination3">
+            <option value="">-- Select Destination --</option>
+        </select>
+
+    </div>
+
+    </div>
+
+        <!-- RESULT -->
+        <div class="price-card">
+
+            <div class="price-left">
+                <p>Total Price</p>
+                <small>Estimated Cost</small>
+            </div>
+
+            <div class="price-right">
+                <span id="tripPrice">IDR 0</span>
+            </div>
+
+        </div>
+
+    <p class="price-note">
+          * Pricing shown is for a maximum of 2 guests per trip.
+    </p>
 
     </div>
 
@@ -228,6 +317,25 @@
 </a>
 
 <script src="script.js"></script>
+
+<footer class="site-footer">
+    <p>© Copyright Bintan Cantik Tour Travel. All Rights Reserved.</p>
+</footer>
+
+<!-- POPUP ADVERTISEMENT -->
+<div class="popup-overlay" id="popupAd">
+
+    <div class="popup-box">
+
+        <button class="popup-close" id="closePopup">
+            &times;
+        </button>
+
+        <img src="assets/promo.png" alt="Promotion">
+
+    </div>
+
+</div>
 
 </body>
 

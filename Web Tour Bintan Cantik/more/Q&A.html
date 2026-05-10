@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Bintan Cantik</title>
+    <title>Portfolio</title>
 
     <link rel="icon" type="image/png" href="../assets/bintan cantik.jpg">
     <link rel="stylesheet" href="../style.css">
@@ -23,14 +23,14 @@
         </div>
     </div>
 
-    <!-- 🔥 ADD THIS (Hamburger Button) -->
+    <!-- 🔥 Hamburger OUTSIDE nav -->
     <button class="menu-toggle" id="mobile-menu-btn">
         <span></span>
         <span></span>
         <span></span>
     </button>
 
-    <!-- 🔥 ADD id="nav-menu" HERE -->
+    <!-- 🔥 Only ONE nav -->
     <nav id="nav-menu">
         <a href="../index.html">Home</a>
         <a href="about.html">About Us</a>
@@ -42,52 +42,78 @@
             </a>
             <div class="dropdown-menu" id="dropdownMenu">
                 <a href="gallery.html">Gallery</a>
-                <a href="Q&A.html">Q&A</a>
+                <a href="qna.html">Q&A</a>
             </div>
         </div>
     </nav>
 </header>
 
-<!-- Wrap all content in page-content to apply fade-in effect -->
-<div class="page-content">
+<section class="qna-page">
 
-    <section class="about-page">
+    <div class="qna-hero-text">
+        <h1>Q & A</h1>
+        <p class="about-tagline">
+            Frequently Asked Questions
+        </p>
+    </div>
 
-        <div class="about-hero-text">
-            <h1>About Us</h1>
-            <p class="about-tagline">
-                Have you ever imagined stepping into paradise with a truly local,
-                friendly, and personalized tour experience?
-            </p>
+    <div class="faq-container">
+
+        <div class="faq-item">
+            <button class="faq-question">
+                What destinations do you cover?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    We provide tours in Batam, Bintan, and Tanjung Pinang including
+                    beaches, resorts, cultural landmarks, and island hopping experiences.
+                </p>
+            </div>
         </div>
 
-        <div class="about-content">
-            <p>
-                At <strong>Bintan Cantik</strong>, we believe traveling is not just about visiting places —
-                it’s about feeling them. From the peaceful beaches of Bintan to the vibrant
-                charm of Batam, we curate authentic island experiences that connect you
-                with nature, culture, and unforgettable memories.
-            </p>
-
-            <p>
-                Our team is made up of passionate locals who understand every hidden
-                corner, every sunset spot, and every story worth sharing. Whether you
-                seek relaxation, adventure, or cultural discovery, we ensure your journey
-                feels warm, seamless, and genuinely special.
-            </p>
-
-            <p>
-                Let us turn your holiday into a story you’ll <strong> cherish forever.</strong>
-            </p>
+        <div class="faq-item">
+            <button class="faq-question">
+                How can I book a tour?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    You can contact us directly via WhatsApp or email. Our team will
+                    assist you with package details and booking confirmation.
+                </p>
+            </div>
         </div>
 
-        <div class="about-image">
-            <img src="../assets/man.png" alt="About Penaga Tour">
+        <div class="faq-item">
+            <button class="faq-question">
+                Are transportation and meals included?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Most packages include transportation. Meals depend on the selected
+                    package and can be customized based on your request.
+                </p>
+            </div>
         </div>
 
-    </section>
+        <div class="faq-item">
+            <button class="faq-question">
+                Do you offer private or group tours?
+                <span>+</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Yes, we offer both private and group tours depending on your needs
+                    and budget.
+                </p>
+            </div>
+        </div>
+</div>
+</section>
 
-    <section class="contact">
+<section class="contact">
     <h2>Contact Us</h2>
 
     <div class="contact-container">
@@ -121,9 +147,11 @@
 
 </a>
 
-</div> <!-- End page-content -->
-
 <script src="../script.js"></script>
+
+<footer class="site-footer">
+    <p>© Copyright Bintan Cantik Tour Travel. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>

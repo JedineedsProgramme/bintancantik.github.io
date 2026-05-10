@@ -222,3 +222,166 @@ document.querySelectorAll(".faq-question").forEach(button => {
     });
 });
 
+// ==========================================
+// 8. DESTINATION PRICE CALCULATOR
+// ==========================================
+
+const placeSelect = document.getElementById("placeSelect");
+
+const destination1 = document.getElementById("destination1");
+const destination2 = document.getElementById("destination2");
+const destination3 = document.getElementById("destination3");
+
+const tripPrice = document.getElementById("tripPrice");
+
+/* DESTINATION OPTIONS */
+const destinationOptions = {
+
+    bintan: [
+        { value: "lagoi", text: "Lagoi" },
+        { value: "gunungbintan", text: "Gunung Bintan" },
+        { value: "bluelake", text: "Blue Lake & Sand Dune" },
+        { value: "vihara", text: "Avalokitesvara Vihara" },
+        { value: "mikasa", text: "Gunung Mikasa" }
+    ],
+
+    batam: [
+        { value: "nongsa", text: "Nongsa" },
+        { value: "bengkong", text: "Bengkong" }
+    ]
+};
+
+/* ALL DESTINATION DROPDOWNS */
+const dropdowns = [
+    destination1,
+    destination2,
+    destination3
+];
+
+/* UPDATE DESTINATION OPTIONS */
+function updateDestinations() {
+
+    const selectedPlace = placeSelect.value;
+
+    dropdowns.forEach(dropdown => {
+
+        const currentValue = dropdown.value;
+
+        dropdown.innerHTML =
+            `<option value="">-- Select Destination --</option>`;
+
+        if (destinationOptions[selectedPlace]) {
+
+            destinationOptions[selectedPlace].forEach(destination => {
+
+                const option = document.createElement("option");
+
+                option.value = destination.value;
+                option.textContent = destination.text;
+
+                dropdown.appendChild(option);
+            });
+        }
+
+        dropdown.value = currentValue;
+    });
+
+    removeDuplicateSelections();
+
+    calculateTripPrice();
+}
+
+/* PREVENT DUPLICATE DESTINATIONS */
+function removeDuplicateSelections() {
+
+    const selectedValues = dropdowns
+        .map(dropdown => dropdown.value)
+        .filter(value => value !== "");
+
+    dropdowns.forEach(dropdown => {
+
+        const currentValue = dropdown.value;
+
+        Array.from(dropdown.options).forEach(option => {
+
+            if (
+                option.value !== "" &&
+                option.value !== currentValue &&
+                selectedValues.includes(option.value)
+            ) {
+                option.disabled = true;
+            }
+
+            else {
+                option.disabled = false;
+            }
+
+        });
+
+    });
+
+}
+
+/* PRICE CALCULATION */
+function calculateTripPrice() {
+
+    const selectedDestinations = dropdowns
+        .map(dropdown => dropdown.value)
+        .filter(value => value !== "");
+
+    const totalSelected = selectedDestinations.length;
+
+    let price = 0;
+
+    if (totalSelected === 1) {
+        price = 240000;
+    }
+
+    else if (totalSelected === 2) {
+        price = 500000;
+    }
+
+    else if (totalSelected === 3) {
+        price = 700000;
+    }
+
+    tripPrice.innerHTML =
+    `IDR ${price.toLocaleString("id-ID")}`;
+
+    removeDuplicateSelections();
+}
+
+/* EVENTS */
+placeSelect.addEventListener("change", updateDestinations);
+
+dropdowns.forEach(dropdown => {
+    dropdown.addEventListener("change", calculateTripPrice);
+});
+
+// ==========================================
+// 9. POPUP ADVERTISEMENT
+// ==========================================
+
+window.addEventListener("load", () => {
+
+    const popup = document.getElementById("popupAd");
+    const closeBtn = document.getElementById("closePopup");
+
+    // Show popup after page loads
+    setTimeout(() => {
+        popup.classList.add("show");
+    }, 800);
+
+    // Close popup
+    closeBtn.addEventListener("click", () => {
+        popup.classList.remove("show");
+    });
+
+    // Close when clicking outside
+    popup.addEventListener("click", (e) => {
+        if (e.target === popup) {
+            popup.classList.remove("show");
+        }
+    });
+
+});

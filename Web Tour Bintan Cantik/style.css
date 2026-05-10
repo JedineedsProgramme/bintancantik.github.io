@@ -62,7 +62,7 @@ header * {
 }
 
 .contact-info {
-    display: flex;
+    display: none;
     gap: 15px;
     font-size: 14px;
     font-weight: bold;
@@ -162,9 +162,11 @@ nav a:visited {
 }
 
 .section-title {
-    font-size: 28px;
+    font-size: 64px;
+    font-weight: 800;
     margin-bottom: 30px;
-    font-weight: 600;
+    letter-spacing: -1px;
+    color: #222;
 }
 
 /* ==========================================================================
@@ -478,12 +480,6 @@ nav a:visited {
     .menu-toggle.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 }
 
-.slider-wrapper {
-    display: flex;
-    transition: transform 0.4s ease-out;
-    will-change: transform;
-    user-select: none;
-}
 
 .about-page {
     padding: 100px 20px;
@@ -794,4 +790,277 @@ nav a:visited {
 a[href^="tel"] {
     color: inherit;
     text-decoration: none;
+}
+
+
+/* ========================================================================== 
+   7. DESTINATION PRICE CALCULATOR (UPGRADED UI)
+   ========================================================================== */
+
+.destination-calculator {
+    padding: 90px 20px;
+    background: linear-gradient(to bottom, #f8fbfd, #eef5f9);
+    text-align: center;
+}
+
+.calculator-header {
+    margin-bottom: 40px;
+}
+
+.calculator-header p {
+    max-width: 650px;
+    margin: 10px auto 0;
+    color: #666;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.calculator-box {
+    max-width: 1400px;
+    margin: auto;
+    background: rgba(255,255,255,0.92);
+    backdrop-filter: blur(12px);
+    padding: 40px;
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    border: 1px solid rgba(255,255,255,0.4);
+}
+
+/* GRID */
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+/* DROPDOWN */
+.dropdown-group {
+    text-align: left;
+}
+
+.dropdown-group label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #333;
+    font-size: 15px;
+}
+
+/* STEP NUMBER */
+.step-circle {
+    width: 28px;
+    height: 28px;
+    background: #0088cc;
+    color: white;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.dropdown-group select {
+    width: 100%;
+    padding: 16px 18px;
+    border-radius: 14px;
+    border: 1px solid #dce3e8;
+    background: white;
+    font-size: 16px;
+    outline: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.dropdown-group select:hover {
+    border-color: #0088cc;
+}
+
+.dropdown-group select:focus {
+    border-color: #0088cc;
+    box-shadow: 0 0 0 5px rgba(0,136,204,0.12);
+}
+
+/* PRICE CARD */
+.price-card {
+    background: linear-gradient(135deg, #0088cc, #006fa6);
+    color: white;
+    border-radius: 22px;
+    padding: 25px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    box-shadow: 0 15px 30px rgba(0,136,204,0.25);
+}
+
+.price-left p {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.price-left small {
+    opacity: 0.85;
+    font-size: 13px;
+}
+
+#tripPrice {
+    font-size: 36px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: white;
+    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* INFO TEXT */
+.price-info {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.7;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .destination-calculator {
+        padding: 60px 15px;
+    }
+
+    .calculator-box {
+        padding: 25px 20px;
+        border-radius: 20px;
+    }
+
+    .destination-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+
+    .price-card {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    #tripPrice {
+        font-size: 30px;
+    }
+
+    .calculator-header p {
+        font-size: 15px;
+    }
+}
+
+body.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.price-note {
+    margin-top: 12px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.site-footer {
+    background: rgb(255, 255, 255)
+    color: rgba(255,255,255,0.75);
+    text-align: center;
+    padding: 18px 20px;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+/* ==========================================
+   POPUP ADVERTISEMENT
+========================================== */
+
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.65);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.35s ease;
+}
+
+.popup-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup-box {
+    position: relative;
+    width: 90%;
+    max-width: 520px;
+
+    animation: popupScale 0.35s ease;
+}
+
+.popup-box img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+}
+
+.popup-close {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: white;
+    color: #111;
+
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+@keyframes popupScale {
+    from {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+
+    .popup-box {
+        width: 92%;
+    }
+
+    .popup-close {
+        width: 34px;
+        height: 34px;
+        font-size: 22px;
+    }
+
 }
